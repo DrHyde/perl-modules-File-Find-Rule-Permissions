@@ -1,0 +1,6 @@
+lib/File/Find/Rule/Permissions.pm
+test.pl
+Makefile.PL
+MANIFEST
+README
+CHANGES

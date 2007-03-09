@@ -1,0 +1,4 @@
+1.2	2003-12-17	Fixed bug so that it emits no warnings if
+			the groups db has non-existent users in it
+1.1	2003-07-22	Fixed to be aware that uid 0 can always read and write
+1.0	2003-06-29	First version released
