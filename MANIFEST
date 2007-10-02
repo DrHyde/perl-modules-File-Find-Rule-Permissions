@@ -1,6 +1,7 @@
 lib/File/Find/Rule/Permissions.pm
-test.pl
 Makefile.PL
 MANIFEST
 README
 CHANGES
+t/all.t
+t/pod.t

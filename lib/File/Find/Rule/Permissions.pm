@@ -1,11 +1,13 @@
 package File::Find::Rule::Permissions;
 use strict;
 
+use Devel::AssertOS::Unix;
+
 use File::Find::Rule;
 use base qw( File::Find::Rule );
 use vars qw( $VERSION @EXPORT );
 @EXPORT  = @File::Find::Rule::EXPORT;
-$VERSION = '1.2';
+$VERSION = '1.3';
 
 use Fcntl qw(:mode);
 
