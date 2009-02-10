@@ -3,7 +3,7 @@ Makefile.PL
 MANIFEST
 README
 CHANGES
-t/all.t
+t/mocked.t
 t/pod.t
 ARTISTIC.txt
 GPL2.txt
