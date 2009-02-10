@@ -9,13 +9,14 @@ use vars qw(
 
 package File::Find::Rule::Permissions;
 
+no warnings qw(redefine);
 sub stat {
     my $filename = shift;
     my @stat = CORE::stat($filename);
+    my $mode = oct($filename);
+    # print "$filename: mode=$mode, user=$File::Find::Rule::Permissions::Tests::userid, group=$File::Find::Rule::Permissions::Tests::groupid\n";
     return (
-        @stat[0, 1],
-        $filename,           # mode
-        $stat[3],
+        @stat[0, 1], $mode, $stat[3],
         $File::Find::Rule::Permissions::Tests::userid,
         $File::Find::Rule::Permissions::Tests::groupid,
         @stat[6..12]
@@ -34,7 +35,7 @@ sub getusergroupdetails {
     %GroupnamesByGID = reverse(%GIDsByGroupname);
     %UIDinGID = ();
 
-    foreach my $gid (keys %{%UIDinGID}) {
+    foreach my $gid (keys %{$UIDinGID}) {
         $UIDinGID{$gid}{$_} = 1 foreach(@{$UIDinGID->{$gid}});
     }
 }

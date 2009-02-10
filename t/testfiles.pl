@@ -2,17 +2,22 @@
 
 use strict;
 use warnings;
+
+cleanup();
 mkdir("t/testfiles") || die("Can't mkdir t/testfiles\n");
-foreach (0 .. 0777) {
-    open(FILE, ">t/testfiles/$_") || die("Can't create t/testfiles/$_\n");
+foreach my $mode (map { sprintf("%04o", $_) } 0 .. 0777) {
+    open(FILE, ">t/testfiles/$mode") || die("Can't create t/testfiles/$mode\n");
+    print FILE $mode;
     close(FILE);
 }
 
-END {
-    foreach (0 .. 0777) {
-        unlink "t/testfiles/$_";
+sub cleanup {
+    foreach my $mode (map { sprintf("%04o", $_) } 0 .. 0777) {
+        unlink "t/testfiles/$mode";
     }
     rmdir("t/testfiles");
 }
+
+END { cleanup() }
 
 1;

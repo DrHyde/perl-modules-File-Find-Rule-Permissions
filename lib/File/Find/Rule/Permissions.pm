@@ -171,7 +171,10 @@ sub File::Find::Rule::permissions {
     	    $isExecutable = $mode & S_IXOTH;
 	}
 
-        $isReadable = $isWriteable = 1 if($userid == 0); # root can read and write anything
+        # root can read and write anything, can execute anything
+        # with any x bit set
+        $isReadable = $isWriteable = 1 if($userid == 0);
+        $isExecutable = 1 if($userid == 0 && $mode & 0111);
         
         # Why do all those constants look like incantations to the elder gods?
         #
