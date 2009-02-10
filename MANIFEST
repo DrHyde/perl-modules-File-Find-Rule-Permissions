@@ -8,3 +8,4 @@ t/pod.t
 ARTISTIC.txt
 GPL2.txt
 t/testfiles.pl
+t/mock.pl
