@@ -55,7 +55,7 @@ is_deeply(
         user        => 'root'
     )->in("t/testfiles")],
     [],
-    "root can't *not* write anything (mmm, double negatives)"
+    "root can't *not* write anything"
 );
 is_deeply(
     [sort { $a cmp $b } File::Find::Rule::Permissions->file()->permissions(
@@ -172,7 +172,7 @@ is_deeply(
         user        => 'user2'
     )->in("t/testfiles")],
     [grep { $_ =~ m!^t/testfiles/0..${WSET}$! } @allfiles],
-    "'other' bits say if file is writeable for owner"
+    "'other' bits say if file is writeable for randoms"
 );
 is_deeply(
     [sort { $a cmp $b } File::Find::Rule::Permissions->file()->permissions(
@@ -180,7 +180,7 @@ is_deeply(
         user        => 'user2'
     )->in("t/testfiles")],
     [grep { $_ =~ m!^t/testfiles/0..${WUNSET}$! } @allfiles],
-    "'other' bits say if file is NOT writeable for owner"
+    "'other' bits say if file is NOT writeable for randoms"
 );
 
 is_deeply(
@@ -221,7 +221,7 @@ is_deeply(
         user         => 'user2'
     )->in("t/testfiles")],
     [grep { $_ =~ m!^t/testfiles/0..${XSET}$! } @allfiles],
-    "'other' bits say if file is executable for owner"
+    "'other' bits say if file is executable for randoms"
 );
 is_deeply(
     [sort { $a cmp $b } File::Find::Rule::Permissions->file()->permissions(
@@ -229,7 +229,7 @@ is_deeply(
         user         => 'user2'
     )->in("t/testfiles")],
     [grep { $_ =~ m!^t/testfiles/0..${XUNSET}$! } @allfiles],
-    "'other' bits say if file is NOT executable for owner"
+    "'other' bits say if file is NOT executable for randoms"
 );
 
 is_deeply(
