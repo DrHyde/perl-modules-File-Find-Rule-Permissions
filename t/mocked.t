@@ -15,8 +15,7 @@ if($@) { eval qq{
     plan skip_all => "$@";
     exit(0);
 }} else { eval q{
-    # 12 == r, w, x for user, group, root, other
-    use Test::More tests => (01000 * 12);
+    use Test::More tests => 25;
 }}
 
 # define some regexen for filtering the list of files
