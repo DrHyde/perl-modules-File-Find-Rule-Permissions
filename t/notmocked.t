@@ -27,27 +27,27 @@ my %UIDinGID        = %File::Find::Rule::Permissions::UIDinGID;
 my $owner; my $group; my $useringroup; my $random;
 FINDOWNER: foreach (grep { $_ } keys %UsernamesByUID) {
     $owner = $_; $group = undef; $useringroup = undef; $random = undef;
-    print "# trying with owner $owner ($UsernamesByUID{$owner})\n";
+    # print "# trying with owner $owner ($UsernamesByUID{$owner})\n";
     my @groups = grep { $UIDinGID{$_}->{$owner} } keys %GroupnamesByGID;
-    print "# in groups [".join(', ', @groups)."]\n";
+    # print "# in groups [".join(', ', @groups)."]\n";
     my @notgroups = grep {
 	my $group = $_;
         $group && !(grep { $_ == $group } @groups)
     } keys %GroupnamesByGID;
-    print "# not in groups [".join(', ', @notgroups)."]\n";
+    # print "# not in groups [".join(', ', @notgroups)."]\n";
     FINDGROUP: foreach (@notgroups) {
         $group = $_;
-	print "#   looking for people *not* in group $group ($GroupnamesByGID{$group}) and not owner\n";
+	# print "#   looking for people *not* in group $group ($GroupnamesByGID{$group}) and not owner\n";
 	FINDRANDOM: foreach (grep { $_ && $_ != $owner } keys %UsernamesByUID) {
 	    $random = $_;
-	    print "#     trying $random ($UsernamesByUID{$random})\n";
+	    # print "#     trying $random ($UsernamesByUID{$random})\n";
 	    last FINDRANDOM if(!$UIDinGID{$group}->{$random});
             undef $random;
 	}
-	print "#   looking for people *in* group $group ($GroupnamesByGID{$group}) and not owner\n";
+	# print "#   looking for people *in* group $group ($GroupnamesByGID{$group}) and not owner\n";
 	FINDUSERINGROUP: foreach (grep { $_ && $_ != $owner } keys %UsernamesByUID) {
 	    $useringroup = $_;
-	    print "#     trying $useringroup ($UsernamesByUID{$useringroup})\n";
+	    # print "#     trying $useringroup ($UsernamesByUID{$useringroup})\n";
 	    last FINDUSERINGROUP if($UIDinGID{$group}->{$useringroup});
             undef $useringroup;
 	}

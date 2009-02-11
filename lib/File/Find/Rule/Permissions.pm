@@ -86,13 +86,6 @@ group membership changes underneath the program, incorrect results may
 be returned.  I consider this to be Just Fine, given that most shells
 also have the same limitation.
 
-There are only minimal tests supplied, as a comprehensive test suite
-would not only have to run as root, but would also have to go around
-creating files belonging to all sorts of users with all sorts of
-permissions.  I have tested it myself, but obviously my tests will not
-take into account all the wrinkles in other peoples' filesystems on
-other operating systems.  Patches welcome.
-
 =cut
 
 # figure out who has what UID and which UIDs are in which group
@@ -203,12 +196,17 @@ sub File::Find::Rule::permissions {
 
 =head1 FEEDBACK
 
-Please!  If reporting a bug, please include sufficient information for me to be
-able to replicate it consistently.  Patches are most welcome and will earn not
-only my undieing gratitude, but also a pint of fine ale.  Whilst this is free
-software, if you wish to show your appreciation by buying something from my
-wishlist, then your bug reports will go to the front of the queue:
-  L<http://www.cantrell.org.uk/david/shopping-list/wishlist>
+I welcome constructive criticism.  If you need to report a bug, it would
+be most helpful - and it'll get fixed quicker - if you include sufficient
+information for me to be able to replicate it consistently.  Especially
+useful are test scripts which fail with the current implementation but
+should pass.
+
+Please report bugs either by email or using L<http://rt.cpan.org/>.
+
+=head1 CVS
+
+L<http://drhyde.cvs.sourceforge.net/viewvc/drhyde/perlmodules/File-Find-Rule-Permissions/>
 
 =head1 SEE ALSO
 
@@ -216,7 +214,7 @@ wishlist, then your bug reports will go to the front of the queue:
 
 =head1 AUTHOR, COPYRIGHT and LICENCE
 
-Copyright 2008 David Cantrell E<lt>david@cantrell.org.ukE<gt>
+Copyright 2003-2009 David Cantrell E<lt>david@cantrell.org.ukE<gt>
 
 Based on code by Kate Pugh (File::Find::Rule::MP3Info) and Richard Clamp.
 

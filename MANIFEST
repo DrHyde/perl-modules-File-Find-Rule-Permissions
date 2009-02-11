@@ -1,10 +1,10 @@
+ARTISTIC.txt
+CHANGES
+GPL2.txt
 lib/File/Find/Rule/Permissions.pm
 Makefile.PL
 MANIFEST
 README
-CHANGES
-ARTISTIC.txt
-GPL2.txt
 t/_createtestfiles.pl
 t/_filetests.pl
 t/_mock.pl
