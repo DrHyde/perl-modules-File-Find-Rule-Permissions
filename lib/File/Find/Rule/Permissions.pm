@@ -11,7 +11,7 @@ use vars qw(
     %GroupnamesByGID %UIDinGID
 );
 @EXPORT  = @File::Find::Rule::EXPORT;
-$VERSION = '1.3';
+$VERSION = '2.0';
 
 use Fcntl qw(:mode);
 
@@ -29,9 +29,9 @@ access
       ->permissions(isReadable => 1, user => 'nobody')
       ->in('.');
                   
-  # Which files can the 'nobody' user *not* read in the current directory?
+  # Which files can UID 42 *not* read in the current directory?
   @notreadable = File::Find::Rule::Permissions->file()
-      ->permissions(isReadable => 0, user => 'nobody')
+      ->permissions(isReadable => 0, user => 42)
       ->in('.');
                   
   # Find big insecurity badness!

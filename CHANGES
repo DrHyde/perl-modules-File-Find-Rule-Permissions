@@ -1,4 +1,5 @@
-1.4     2009-XX-XX      Remove 'use diagnostics' from tests;
+2.0     2009-XX-XX      Completely re-work tests, so that it actually, y'know,
+                          *tests stuff*
                         Better copyright etc text
 			Fix bug in handling 'other' perm bits
 

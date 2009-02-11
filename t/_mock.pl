@@ -7,7 +7,8 @@ use vars qw(
     %GroupnamesByGID %UIDinGID
 );
 
-package File::Find::Rule::Permissions;
+package # split to avoid confusing stupid software
+    File::Find::Rule::Permissions;
 
 no warnings qw(redefine);
 sub stat {
