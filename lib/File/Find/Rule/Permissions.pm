@@ -204,9 +204,9 @@ should pass.
 
 Please report bugs either by email or using L<http://rt.cpan.org/>.
 
-=head1 CVS
+=head1 SOURCE CODE REPOSITORY
 
-L<http://drhyde.cvs.sourceforge.net/viewvc/drhyde/perlmodules/File-Find-Rule-Permissions/>
+L<git://github.com/DrHyde/perl-modules-File-Find-Rule-Permissions.git>
 
 =head1 SEE ALSO
 
