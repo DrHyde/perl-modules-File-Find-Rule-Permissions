@@ -1,0 +1,2 @@
+Need to check that user can access all parent dirs, taking into account
+  symlinks
