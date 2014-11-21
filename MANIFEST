@@ -11,3 +11,4 @@ t/_mock.pl
 t/mocked.t
 t/notmocked.t
 t/pod.t
+MANIFEST.SKIP
