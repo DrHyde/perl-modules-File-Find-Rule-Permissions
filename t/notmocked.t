@@ -15,7 +15,7 @@ if($> != 0) { eval { # not running as root
     if(in_travis()) {
 	my @command = (
 	    'sudo', $^X,
-	    (map { "-Ilib$_" } @INC),
+	    (map { "-I$_" } @INC),
 	    $0, @ARGV
 	);
         diag "About to exec ... [".join(', ', @command)."]";
