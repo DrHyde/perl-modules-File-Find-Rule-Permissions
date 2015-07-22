@@ -1,48 +1,28 @@
-#!perl
+#!/usr/bin/perl -w
 
 package # split, so as not to confuse stuff
     File::Find::Rule::Permissions::Tests;
 
 use strict;
-use warnings;
 use File::Find::Rule::Permissions;
 use Data::Dumper;
-use Test::More;
 
-sub in_travis { return $ENV{TRAVIS_PERL_VERSION} }
-
-if($> != 0) { eval { # not running as root
-    if(in_travis()) {
-	my @command = (
-	    'sudo', $^X,
-	    (map { "-Ilib$_" } @INC),
-	    $0, @ARGV
-	);
-        diag "About to exec ... [".join(', ', @command)."]";
-	exec(@command);
-    }
+eval 'require "t/_createtestfiles.pl"';
+if($@) { eval qq{
+    use Test::More;
+    plan skip_all => "$@";
+    exit(0);
+}} elsif($> != 0) { eval { # not running as root
+    use Test::More;
     plan skip_all => "Must be running as root to run these tests";
     exit(0);
 }}
 
-# OK, we must be root now
-
-eval 'require "t/_createtestfiles.pl"';
-if($@) { eval qq{
-    plan skip_all => "$@";
-    exit(0);
-}}
 
 # figure out some users/groups
 my %UsernamesByUID  = %File::Find::Rule::Permissions::UsernamesByUID;
 my %GroupnamesByGID = %File::Find::Rule::Permissions::GroupnamesByGID;
 my %UIDinGID        = %File::Find::Rule::Permissions::UIDinGID;
-
-if(in_travis()) {
-    diag "Usernames by UID: ".Dumper(\%UsernamesByUID);
-    diag "Groupnames by GID: ".Dumper(\%GroupnamesByGID);
-    diag "UIDinGID: ".Dumper(\%UIDinGID);
-}
 
 my $owner; my $group; my $useringroup; my $random;
 FINDOWNER: foreach (grep { $_ } keys %UsernamesByUID) {
@@ -98,10 +78,10 @@ if($owner && $group && $useringroup && $random) { eval q{
     exit(0);
 }}
 
-diag "using owner  = $owner ($UsernamesByUID{$owner})\n";
-diag "using group  = $group ($GroupnamesByGID{$group})\n";
-diag "group user   = $useringroup ($UsernamesByUID{$useringroup})\n";
-diag "using random = $random ($UsernamesByUID{$random})\n";
+print "# using owner  = $owner ($UsernamesByUID{$owner})\n";
+print "# using group  = $group ($GroupnamesByGID{$group})\n";
+print "# group user   = $useringroup ($UsernamesByUID{$useringroup})\n";
+print "# using random = $random ($UsernamesByUID{$random})\n";
 
 makefiles($owner, $group);
 
