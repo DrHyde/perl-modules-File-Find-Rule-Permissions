@@ -27,6 +27,6 @@ sub cleanup {
     rmdir("t/testfiles");
 }
 
-END { cleanup() unless($ENV{TRAVIS_PERL_VERSION}) }
+END { cleanup() }
 
 1;
