@@ -1,3 +1,5 @@
+2.01    2016-09-17      Fix a bug affecting perl 5.24
+
 2.0     2009-02-11      Completely re-work tests, so that it actually
                           *tests stuff*
                         Better copyright etc text
@@ -5,9 +7,9 @@
 
 1.3     2007-10-02      Modernise distro
 
-1.2	2003-12-17	Fixed bug so that it emits no warnings if
-			the groups db has non-existent users in it
+1.2     2003-12-17      Fixed bug so that it emits no warnings if
+                          the groups db has non-existent users in it
 
-1.1	2003-07-22	Fixed to be aware that uid 0 can always read and write
+1.1     2003-07-22      Fixed to be aware that uid 0 can always read and write
 
-1.0	2003-06-29	First version released
+1.0     2003-06-29      First version released

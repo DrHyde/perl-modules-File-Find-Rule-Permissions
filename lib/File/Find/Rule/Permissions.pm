@@ -11,7 +11,7 @@ use vars qw(
     %GroupnamesByGID %UIDinGID
 );
 @EXPORT  = @File::Find::Rule::EXPORT;
-$VERSION = '2.0';
+$VERSION = '2.01';
 
 use Fcntl qw(:mode);
 
