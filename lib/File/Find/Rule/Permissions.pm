@@ -96,7 +96,7 @@ getusergroupdetails();
 # we override these in the test suite to avoid having to be root.
 # or we will do when that bit is written, anyway.
 
-sub stat { return CORE::stat(@_); }
+sub stat { return CORE::stat(shift); }
 sub geteuid { return $>; }
 sub getusergroupdetails {
     while(my($name, undef, $uid, $gid) = getpwent()) {
