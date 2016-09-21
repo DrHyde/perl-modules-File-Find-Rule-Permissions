@@ -2,13 +2,15 @@
     
 use Test::More;
 
+use strict;
+use warnings;
+use vars qw($testfiledir);
+
 # define some regexen for filtering the list of files
 my $RSET = '[4567]'; my $RUNSET = '[0123]';
 my $WSET = '[2367]'; my $WUNSET = '[0145]';
 my $XSET = '[1357]'; my $XUNSET = '[0246]';
 
-my $testfiledir = $main::testfiledir;
-    
 my @allfiles = sort { $a cmp $b } File::Find::Rule::Permissions->file()->permissions(
     isReadable => 1,
     user => 'root'
