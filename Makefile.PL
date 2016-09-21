@@ -13,5 +13,6 @@ WriteMakefile(
         'File::Find::Rule'      => 0.1,
         'Devel::AssertOS::Unix' => 1.0,
         'Test::More'            => 0,
+        'File::Temp'            => 0.2,
     }
 );
