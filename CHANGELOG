@@ -1,3 +1,5 @@
+2.02    2016-09-21      Fix bug in tests that broke when tested in parallel
+
 2.01    2016-09-17      Fix a bug affecting perl 5.24
 
 2.0     2009-02-11      Completely re-work tests, so that it actually
