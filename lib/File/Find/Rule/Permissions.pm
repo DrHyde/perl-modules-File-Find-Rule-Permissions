@@ -11,7 +11,7 @@ use vars qw(
     %GroupnamesByGID %UIDinGID
 );
 @EXPORT  = @File::Find::Rule::EXPORT;
-$VERSION = '2.02';
+$VERSION = '2.03';
 
 use Fcntl qw(:mode);
 
@@ -117,7 +117,7 @@ sub getusergroupdetails {
 
 sub File::Find::Rule::permissions {
     my $self = shift()->_force_object;
-    my %criteria = UNIVERSAL::isa($_[0], "HASH") ? %{$_[0]} : @_;
+    my %criteria = ref($_[0]) eq "HASH" ? %{$_[0]} : @_;
 
     $self->exec(sub {
         my $file = shift;
