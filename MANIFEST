@@ -12,3 +12,5 @@ t/mocked.t
 t/notmocked.t
 t/pod.t
 MANIFEST.SKIP
+t/coverage.sh
+t/pod-coverage.t
