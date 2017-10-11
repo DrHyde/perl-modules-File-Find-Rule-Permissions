@@ -210,7 +210,7 @@ information for me to be able to replicate it consistently.  Especially
 useful are test scripts which fail with the current implementation but
 should pass.
 
-Please report bugs either by email or using L<http://rt.cpan.org/>.
+Bug reports should be made on Github or by email.
 
 =head1 SOURCE CODE REPOSITORY
 
