@@ -4,6 +4,7 @@ package # split, so as not to confuse stuff
     File::Find::Rule::Permissions::Tests;
 
 use strict;
+use lib '.';
 use File::Find::Rule::Permissions;
 use Data::Dumper;
 
