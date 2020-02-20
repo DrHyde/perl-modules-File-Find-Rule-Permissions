@@ -20,5 +20,6 @@ matrix:
   include:
     - perl: 5.20
       env: COVERAGE=1
+      script: perl Makefile.PL && HARNESS_OPTIONS=j9 sudo -E make test
 before_install:
   - eval $(curl https://travis-perl.github.io/init) --auto
