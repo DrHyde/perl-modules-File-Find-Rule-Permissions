@@ -20,4 +20,4 @@ task:
     - export PERL5LIB=/Users/anka/perl5/lib/perl5
     - perl Makefile.PL verbose
     - make
-    - sudo -E make test TEST_VERBOSE=1
+    - sudo -E ./sudomaketest.sh
