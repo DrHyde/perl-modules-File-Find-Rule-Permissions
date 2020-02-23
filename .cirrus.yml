@@ -19,5 +19,4 @@ task:
     - /Users/anka/perl5/bin/cpanm -v --installdeps .
     - export PERL5LIB=/Users/anka/perl5/lib/perl5
     - perl Makefile.PL verbose
-    - make
-    - sudo -E ./sudomaketest.sh
+    - sudo prove -I /Users/anka/perl5/lib/perl5 t/*.t
