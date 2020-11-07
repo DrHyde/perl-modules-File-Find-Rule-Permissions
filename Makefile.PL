@@ -12,7 +12,7 @@ WriteMakefile(
     PREREQ_PM    => {
         'File::Find::Rule'      => 0.1,
         'Devel::AssertOS::Unix' => 1.0,
-        'Test::More'            => 0,
+        'Test::More'            => 0.88, # done_testing
         'File::Temp'            => 0.2,
     }
 );

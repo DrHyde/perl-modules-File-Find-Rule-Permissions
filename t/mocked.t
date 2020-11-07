@@ -17,7 +17,6 @@ if($@) { eval qq{
     exit(0);
 }} else { eval q{
     use Test::More;
-    END { done_testing };
 }}
 makefiles();
 
@@ -48,3 +47,5 @@ group('user3');
 other('user2');
 
 edge_cases();
+
+done_testing();

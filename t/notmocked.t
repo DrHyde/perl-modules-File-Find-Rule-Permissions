@@ -73,7 +73,6 @@ undef($owner) if( # must have three different users
 
 if($owner && $group && $useringroup && $random) { eval q{
     use Test::More;
-    END { done_testing }
 }} else { eval {
     use Test::More;
     plan skip_all => "Couldn't figure out a user who is in a group, and two users not in that group";
@@ -112,3 +111,5 @@ is_deeply(
     )],
     "appears to work without specifying a user"
 );
+
+done_testing();
