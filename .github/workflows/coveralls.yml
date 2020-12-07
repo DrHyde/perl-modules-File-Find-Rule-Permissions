@@ -13,5 +13,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cpanm --installdeps .
-          cpanm -v Devel::Cover::Report::Coveralls
-          sudo --preserve-env=GITHUB_TOKEN cover -test -report Coveralls
+          cpanm Devel::Cover::Report::Coveralls
+          sudo --preserve-env=GITHUB_TOKEN /opt/hostedtoolcache/perl/5.32.0/x64/bin/cover -test -report Coveralls
