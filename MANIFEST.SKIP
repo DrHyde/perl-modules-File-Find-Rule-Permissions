@@ -1,4 +1,4 @@
 .travis.yml
 ^\.git
 .cirrus.yml
-^../XML-Tiny/workflow-templates
+^workflow-templates
