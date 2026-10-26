@@ -1,8 +1,10 @@
 use ExtUtils::MakeMaker;
 WriteMakefile(
     NAME         => 'File::Find::Rule::Permissions',
-    META_MERGE => {
+    META_ADD => {
         license => 'open_source',
+},
+META_MERGE => {
         resources => {
 	    repository => 'https://github.com/DrHyde/perl-modules-File-Find-Rule-Permissions',
 	    bugtracker => 'https://github.com/DrHyde/perl-modules-File-Find-Rule-Permissions/issues'
